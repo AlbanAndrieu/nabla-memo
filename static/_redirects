@@ -1,0 +1,11 @@
+# Cloudflare Pages redirects configuration
+# For more information: https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Redirect old paths to new paths (if any)
+# /old-path /new-path 301
+
+# Ensure www redirects to non-www (or vice versa)
+# https://www.nabla-memo.pages.dev/* https://nabla-memo.pages.dev/:splat 301
+
+# SPA fallback - uncomment if using a single-page application
+# /* /index.html 200

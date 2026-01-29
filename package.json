@@ -2,13 +2,19 @@
 	"name": "nabla-memo",
 	"version": "1.0.0",
 	"private": true,
-	"scripts": {},
+	"scripts": {
+		"dev": "hugo server -D",
+		"build": "hugo --gc --minify",
+		"cf:deploy": "wrangler pages deploy public --project-name=nabla-memo",
+		"cf:dev": "wrangler pages dev public"
+	},
 	"devDependencies": {
 		"@commitlint/cli": "^20.3.1",
 		"@commitlint/config-conventional": "^20.3.1",
 		"commitlint": "^20.3.1",
 		"cz-conventional-changelog": "^3.3.0",
-		"opencommit": "^3.2.10"
+		"opencommit": "^3.2.10",
+		"wrangler": "^3.94.0"
 	},
 	"dependencies": {
 		"@vercel/analytics": "^1.6.1",
