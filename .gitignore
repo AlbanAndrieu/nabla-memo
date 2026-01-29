@@ -484,3 +484,8 @@ __marimo__/
 .dev.vars
 .wrangler/
 .vercel
+
+# Hugo
+resources/_gen/
+.hugo_build.lock
+public/
