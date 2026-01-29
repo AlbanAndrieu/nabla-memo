@@ -1,0 +1,8 @@
+# Cloudflare Workers/Pages local development environment variables
+# Copy this file to .dev.vars and fill in your actual values
+# .dev.vars is gitignored and should NOT be committed
+
+# Example environment variables (add your own as needed)
+# API_KEY=your-api-key-here
+# DATABASE_URL=your-database-url-here
+# ENVIRONMENT=development

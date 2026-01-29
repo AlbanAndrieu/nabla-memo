@@ -1,0 +1,44 @@
+# Cloudflare Wrangler Configuration
+# For more information: https://developers.cloudflare.com/pages/
+
+# Project name - should match your Cloudflare Pages project
+name = "nabla-memo"
+
+# Compatibility date ensures consistent Worker API behavior
+# Update this date when you want to adopt new breaking changes
+compatibility_date = "2024-01-29"
+
+# Pages configuration
+# Specifies the output directory for the built static site
+pages_build_output_dir = "public"
+
+# Build configuration
+# These settings define how the site should be built
+[build]
+command = "hugo --gc --minify"
+cwd = ""
+
+# Environment variables for build
+[build.environment]
+HUGO_VERSION = "0.146.0"
+HUGO_EXTENDED = "true"
+
+# Production environment variables (non-sensitive)
+[vars]
+ENVIRONMENT = "production"
+
+# Development environment configuration
+# Use with: wrangler pages dev
+[env.development]
+pages_build_output_dir = "public"
+
+[env.development.vars]
+ENVIRONMENT = "development"
+
+# Preview environment configuration
+# Used for pull request previews
+[env.preview]
+pages_build_output_dir = "public"
+
+[env.preview.vars]
+ENVIRONMENT = "preview"
