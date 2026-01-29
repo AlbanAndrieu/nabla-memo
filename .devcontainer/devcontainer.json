@@ -29,7 +29,6 @@
 			"tflint": "latest"
 		},
 		"ghcr.io/iterative/features/dvc:1": {},
-		"ghcr.io/joedmck/devcontainer-features/wrangler:1": {},
 		"ghcr.io/devcontainers-extra/features/vercel-cli:1": {},
 		"docker-in-docker": "latest",
 		"git": "latest"

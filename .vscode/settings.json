@@ -154,9 +154,6 @@
 	"sqlfluff.dialect": "postgres",
 	"sqlfluff.excludeRules": ["AL06"],
 	"npm.packageManager": "npm",
-	"files.associations": {
-		"wrangler.json": "jsonc"
-	},
 	"cursorpyright.analysis.logLevel": "Trace",
 	"datadog.ust.environment.setup.focusedName": "uat",
 	"git.ignoreLimitWarning": true
