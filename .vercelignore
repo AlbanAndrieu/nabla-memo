@@ -1,18 +1,19 @@
-# Ignore everything (folders and files) on root only
-/*
-# vercel do not like .python-version
+# Hugo specific
+resources/_gen
+.hugo_build.lock
+
+# Python/FastAPI (keep for backwards compatibility)
 .python-version
-!api
-!public
-!templates
-!nabla
-!main.py
-!pyproject.toml
-!uv.lock
-!my-app
-!vercel.json
-!*.html
-!README.md
-packages/*/test/**
-./public/assets/fontawesome-free-7.1.0-web/*
-./public/others/*
+__pycache__
+*.pyc
+*.pyo
+.pytest_cache
+
+# Development
+.DS_Store
+.vscode
+.idea
+
+# Dependencies
+node_modules
+

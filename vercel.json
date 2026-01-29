@@ -1,15 +1,13 @@
 {
 	"$schema": "https://openapi.vercel.sh/vercel.json",
-	"outputDirectory": "public",
 	"github": {
 		"silent": true,
 		"autoJobCancelation": true
 	},
-	"version": 2,
-	"routes": [
-		{
-			"src": "/(.*)",
-			"dest": "nabla/main.py"
+	"build": {
+		"env": {
+			"HUGO_VERSION": "0.146.0"
 		}
-	]
+	},
+	"framework": "hugo"
 }

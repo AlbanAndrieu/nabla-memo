@@ -1,0 +1,22 @@
+baseURL = 'https://nabla-memo.vercel.app/'
+languageCode = 'en-us'
+title = 'Nabla Memo'
+theme = 'PaperMod'
+
+[params]
+  description = 'Sample Hugo site deployable with Vercel'
+  author = 'Nabla Team'
+
+[params.homeInfoParams]
+  Title = 'Welcome to Nabla Memo'
+  Content = 'A Hugo site deployed with Vercel'
+
+[[menu.main]]
+  name = 'Home'
+  url = '/'
+  weight = 1
+
+[[menu.main]]
+  name = 'About'
+  url = '/about/'
+  weight = 2
