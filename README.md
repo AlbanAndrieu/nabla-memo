@@ -1,4 +1,32 @@
-# nabla-site-python
+# nabla-memo
+
+A multi-framework repository featuring both a Hugo static site and a FastAPI application, both deployable to Vercel.
+
+## Projects
+
+This repository contains two deployment options:
+
+### 1. Hugo Static Site (Primary)
+
+A modern static website built with Hugo and the PaperMod theme.
+
+**Quick Start:**
+
+```bash
+# Install dependencies
+git clone --recurse-submodules https://github.com/AlbanAndrieu/nabla-memo.git
+cd nabla-memo
+
+# Run locally
+hugo server -D
+
+# Build for production
+hugo --gc --minify
+```
+
+📖 **[Full Hugo Documentation](HUGO_DEPLOYMENT.md)**
+
+### 2. FastAPI Application (Legacy)
 
 Sample FastAPI Hello World project deployable to Vercel and Cloudflare Wrangler.
 
@@ -71,7 +99,23 @@ uvicorn main:app --reload
 
 ## Deployment
 
-### Deploy to Vercel
+### Hugo Site Deployment
+
+The repository includes automated deployment via GitHub Actions:
+
+- **Production**: Pushes to `master` or `main` trigger production deployment
+- **Preview**: Pull requests trigger preview deployments
+
+**Required Secrets** (for GitHub Actions):
+- `VERCEL_TOKEN`: Your Vercel authentication token
+- `VERCEL_ORG_ID`: Your Vercel organization ID
+- `VERCEL_PROJECT_ID`: Your Vercel project ID
+
+See [HUGO_DEPLOYMENT.md](HUGO_DEPLOYMENT.md) for complete deployment instructions.
+
+### FastAPI Deployment
+
+#### Deploy to Vercel
 
 1. Install Vercel CLI:
 
@@ -131,12 +175,21 @@ The `wrangler.toml` configuration file handles the deployment settings automatic
 
 ```
 .
-├── main.py           # FastAPI application
-├── pyproject.toml    # Python project configuration and dependencies (uv)
-├── uv.lock          # Lock file for reproducible installs
-├── vercel.json      # Vercel deployment configuration
-├── wrangler.toml    # Cloudflare Wrangler configuration
-└── README.md        # This file
+├── archetypes/          # Hugo content templates
+├── content/             # Hugo markdown content
+│   ├── _index.md       # Homepage
+│   └── about.md        # About page
+├── themes/              # Hugo themes
+│   └── PaperMod/       # PaperMod theme (submodule)
+├── hugo.toml            # Hugo configuration
+├── main.py              # FastAPI application (legacy)
+├── pyproject.toml       # Python project configuration
+├── vercel.json          # Vercel deployment configuration
+├── wrangler.toml        # Cloudflare Wrangler configuration
+├── HUGO_DEPLOYMENT.md   # Hugo deployment guide
+└── .github/
+    └── workflows/
+        └── vercel-deploy.yml  # GitHub Actions for Vercel deployment
 ```
 
 ## API Endpoints
