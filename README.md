@@ -9,6 +9,8 @@ This repository contains a Hugo static site with automated deployment via GitHub
 **Quick Start:**
 
 ```bash
+brew install hugo
+
 # Install dependencies
 git clone --recurse-submodules https://github.com/AlbanAndrieu/nabla-memo.git
 cd nabla-memo

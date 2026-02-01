@@ -1,7 +1,7 @@
 baseURL = 'https://nabla-memo.vercel.app/'
 languageCode = 'en-us'
 title = 'Nabla Memo'
-theme = 'PaperMod'
+theme = 'ananke'
 
 [params]
   description = 'Sample Hugo site deployable with Vercel'
