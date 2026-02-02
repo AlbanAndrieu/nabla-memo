@@ -1,6 +1,7 @@
 ---
 description: Hugo Static Site Generator Best Practices and Conventions
-applyTo: 'hugo.toml,config.toml,config.yaml,archetypes/**,content/**,layouts/**,static/**,themes/**'
+applyTo: >-
+  hugo.toml,config.toml,config.yaml,archetypes/**,content/**,layouts/**,static/**,themes/**
 ---
 # Hugo Best Practices
 
@@ -86,7 +87,7 @@ theme = 'PaperMod'
 [params]
   description = 'A fast and modern Hugo site'
   author = 'Your Name'
-  
+
   [params.social]
     twitter = 'yourusername'
     github = 'yourusername'

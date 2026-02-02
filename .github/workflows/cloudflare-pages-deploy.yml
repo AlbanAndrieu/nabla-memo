@@ -19,23 +19,23 @@ jobs:
       contents: read
       deployments: write
       pull-requests: write
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           submodules: true
           fetch-depth: 0
-      
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.146.0'
+          hugo-version: "0.146.0"
           extended: true
-      
+
       - name: Build Hugo site
         run: hugo --gc --minify
-      
+
       - name: Deploy to Cloudflare Pages (Production)
         id: deploy-production
         uses: cloudflare/pages-action@v1
@@ -47,7 +47,7 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           branch: main
         if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
-      
+
       - name: Deploy to Cloudflare Pages (Preview)
         id: deploy-preview
         uses: cloudflare/pages-action@v1
@@ -58,7 +58,7 @@ jobs:
           directory: public
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
         if: github.event_name == 'pull_request'
-      
+
       - name: Add PR Comment with Preview URL
         uses: actions/github-script@v7
         if: github.event_name == 'pull_request'
@@ -66,13 +66,13 @@ jobs:
           script: |
             const deploymentUrl = '${{ steps.deploy-preview.outputs.url }}';
             const comment = `### 🚀 Cloudflare Pages Preview Deployment
-            
+
             Your preview deployment is ready!
-            
+
             🔗 **Preview URL:** ${deploymentUrl}
-            
+
             This preview will be automatically updated on new commits to this PR.`;
-            
+
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,

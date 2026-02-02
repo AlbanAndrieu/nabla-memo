@@ -48,14 +48,14 @@ Open http://localhost:1313 in your browser!
      - `VERCEL_TOKEN`
      - `VERCEL_ORG_ID`
      - `VERCEL_PROJECT_ID`
-   
+
    See [VERCEL_GITHUB_ACTIONS_SETUP.md](VERCEL_GITHUB_ACTIONS_SETUP.md) for detailed instructions.
 
 3. **Push to main branch**:
    ```bash
    git push origin main
    ```
-   
+
    GitHub Actions will automatically deploy to Vercel!
 
 ### Option 2: Manual Deployment

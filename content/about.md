@@ -1,9 +1,8 @@
 ---
-title: "About"
-date: 2026-01-29
+title: About
+date: 2026-01-29T00:00:00.000Z
 draft: false
 ---
-
 # About Nabla Memo
 
 This is a sample Hugo project demonstrating deployment with Vercel.

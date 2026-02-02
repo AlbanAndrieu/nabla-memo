@@ -88,6 +88,10 @@ repos:
         #   )$
     -   id: check-shebang-scripts-are-executable
         name: "📁 filesystem/⚙️ exec · Verify script permissions"
+        exclude: >
+          (?x)^(
+              content/docs/.*|
+          )$
     -   id: check-symlinks
         name: "📁 filesystem/🔗 symlink · Check symlink validity"
     -   id: destroyed-symlinks
@@ -256,6 +260,10 @@ repos:
       # - id: shfmt         # native (requires Go to build)
     -   id: shfmt-docker # Docker image (requires Docker to run)
         name: "🐚 🐳 shell · Format shell scripts"
+        exclude: >
+          (?x)^(
+              content/docs/.*|
+          )$
 -   repo: https://github.com/detailyang/pre-commit-shell
     rev: v1.0.6
     hooks:
@@ -271,6 +279,7 @@ repos:
             docs/Makefile|
             .envrc|
             scripts/run-wicked.sh|
+            content/docs/.*|
           )$
 
 -   repo: https://github.com/openstack/bashate
@@ -285,6 +294,7 @@ repos:
             scripts/run-python.sh|
             scripts/run-wicked.sh|
             .envrc|
+            content/docs/.*|
           )$
 
     ### Makefile ###

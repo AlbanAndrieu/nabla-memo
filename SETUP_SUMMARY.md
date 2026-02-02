@@ -8,7 +8,7 @@ This document summarizes the Hugo project setup completed for the nabla-memo rep
 
 - **Hugo Version**: 0.146.0 (Extended)
 - **Theme**: PaperMod (modern, clean theme with dark mode support)
-- **Content**: 
+- **Content**:
   - Homepage (`content/_index.md`)
   - About page (`content/about.md`)
 

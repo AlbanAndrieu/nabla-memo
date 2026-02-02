@@ -100,7 +100,7 @@ theme = 'your-theme'
 
 [build]
   writeStats = true
-  
+
 [minify]
   disableXML = true
   minifyOutput = true

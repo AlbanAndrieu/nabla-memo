@@ -151,23 +151,23 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           submodules: true
           fetch-depth: 0
-      
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.146.0'
           extended: true
-      
+
       - name: Build Hugo site
         run: hugo --gc --minify
-      
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
@@ -289,7 +289,7 @@ wrangler pages deployments list
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
-  
+
 # Cache headers for static assets
 /static/*
   Cache-Control: public, max-age=31536000, immutable

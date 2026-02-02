@@ -1,9 +1,8 @@
 ---
-title: "Home"
-date: 2026-01-29
+title: Home
+date: 2026-01-29T00:00:00.000Z
 draft: false
 ---
-
 # Welcome to Nabla Memo
 
 This is a Hugo static site generator project deployable with Vercel.

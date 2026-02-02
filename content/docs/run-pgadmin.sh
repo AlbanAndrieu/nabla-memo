@@ -1,0 +1,9 @@
+#!/bin/bash
+set -xv
+sudo curl https://www.pgadmin.org/static/packages_pgadmin_org.pub|  sudo apt-key add
+sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+sudo apt install pgadmin4
+sudo apt install pgadmin4-desktop
+sudo /usr/pgadmin4/bin/setup-web.sh
+sudo apt install --reinstall pgadmin4 pgadmin4-desktop pgadmin4-web
+exit 0

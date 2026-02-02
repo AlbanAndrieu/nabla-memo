@@ -71,10 +71,10 @@ You'll see output like:
 
    - **Name**: `VERCEL_TOKEN`
      **Value**: Your Vercel token from Step 2
-   
+
    - **Name**: `VERCEL_ORG_ID`
      **Value**: Your organization/team ID (starts with `team_`)
-   
+
    - **Name**: `VERCEL_PROJECT_ID`
      **Value**: Your project ID (starts with `prj_`)
 
