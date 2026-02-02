@@ -50,6 +50,7 @@ iocage fetch
 iocage upgrade -r 13.5-RELEASE paperless
 apt-cache search tesseract-ocr|  grep nor
 apt-get install tesseract-ocr-nor tesseract-ocr-fra tesseract-ocr-deu tesseract-ocr-eng tesseract-ocr-spa
+
 PAPERLESS_OCR_LANGUAGE=nor+fra+deu+eng+spa
 ls -lrta /usr/src/paperless/media/documents/archive/0000001.pdf
 ls -lrta /usr/src/paperless/media/documents/originals/0000001.pdf

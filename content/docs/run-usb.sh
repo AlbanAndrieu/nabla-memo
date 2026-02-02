@@ -24,8 +24,10 @@ sudo mount -t vfat /dev/sdg1 /media/usb -o uid=1000,gid=1000,utf8,dmask=027,fmas
 sudo umount /media/usb
 lspci -k
 dconf-editor
+
 gsettings get org.gnome.desktop.media-handling automount true
 gsettings get org.gnome.desktop.media-handling automount-open true
+
 sudo apt install dosfstools mtools
 gparted
 udevadm monitor

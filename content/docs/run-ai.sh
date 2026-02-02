@@ -28,13 +28,17 @@ az ai analyze --file test.json --type arm-template
 brew install google-cloud-sdk
 curl https://sdk.cloud.google.com|  bash
 exec -l $SHELL
+
+./run-gcloud.sh
+
 gcloud init
 gcloud auth login
 gcloud components install alpha beta
 gcloud services enable aiplatform.googleapis.com
-export PROJECT_ID="1054538550931"
-gcloud config set project PROJECT_ID
+
+gcloud config set project ${GCLOUD_PROJECT_ID}
 gcloud version
+
 npm install -g @openai/codex
 codex
 npm install -g @github/copilot
@@ -44,4 +48,17 @@ sudo chmod 644 /etc/apt/sources.list.d/github-cli.list
 github-copilot-cli auth
 brew install jnsahaj/lumen/lumen
 npm install -g @google/gemini-cli
+
+ll ~/.openclaw/openclaw.json
+
+gcloud services enable \
+    --project ${GCLOUD_PROJECT_ID} \
+    "places.googleapis.com"
+
+gcloud services api-keys list
+
+echo "127.0.0.1:18789"
+
+npm i -g clawhub
+
 exit 0
