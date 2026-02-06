@@ -20,4 +20,8 @@ http:
     - https://home-assistant.albandrieu.com
 ----
 wget -O - https://get.hacs.xyz|  bash -
+
+
+# une clé USB300 EnOcean que j’ai appairer à chaque module Ubiwizz avec l’aide du logiciel DolphinView.
+
 exit 0

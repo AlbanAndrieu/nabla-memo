@@ -75,4 +75,9 @@ code --install-extension vivaxy.vscode-conventional-commits
 rm -rf ~/.config/Code/Cache
 killall code
 code .
+
+# https://code.visualstudio.com/docs/setup/linux#_the-code-bin-command-does-not-bring-the-window-to-the-foreground-on-ubuntu
+sudo apt-get install compizconfig-settings-manager
+ccsm
+
 exit 0

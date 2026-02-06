@@ -49,8 +49,6 @@ github-copilot-cli auth
 brew install jnsahaj/lumen/lumen
 npm install -g @google/gemini-cli
 
-ll ~/.openclaw/openclaw.json
-
 gcloud services enable \
     --project ${GCLOUD_PROJECT_ID} \
     "places.googleapis.com"
@@ -58,7 +56,5 @@ gcloud services enable \
 gcloud services api-keys list
 
 echo "127.0.0.1:18789"
-
-npm i -g clawhub
 
 exit 0
