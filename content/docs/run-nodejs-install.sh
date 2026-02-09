@@ -1,46 +1,114 @@
 #!/bin/bash
 set -xv
+
+#On Ubuntu 14.04
 sudo apt-get --purge remove node
 sudo apt-get --purge remove nodejs
+
 /usr/bin/nodejs --version
 /usr/local/bin/node --version
 sudo mv /usr/local/bin/node /usr/local/bin/node-TODELETE
+
 sudo rm -rf /usr/local/{lib/node{,/.npm,_modules},bin,share/man}/{npm*,node*,man1/node*}
-wget -qO- https://deb.nodesource.com/setup_16.x|  sudo -E bash -
-wget -qO- https://deb.nodesource.com/setup_20.x|  sudo -E bash -
-wget -qO- https://deb.nodesource.com/setup_22.x|  sudo -E bash -
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg|  sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main"|  sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update&&  sudo apt-get install yarn
+
+# On Ubuntu 16.04 (you can reinstall it (but I would use Upgrade node in run-nodejs.sh instead)
+#sudo apt-get install nodejs
+# On Ubuntu 19.04
+#curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+# On Ubuntu 20.04
+#curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+# On Ubuntu 21.04
+wget -qO- https://deb.nodesource.com/setup_16.x | sudo -E bash -
+# On Ubuntu 24.04
+wget -qO- https://deb.nodesource.com/setup_20.x | sudo -E bash -
+wget -qO- https://deb.nodesource.com/setup_22.x | sudo -E bash -
+
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install yarn
+#sudo apt-get install nodejs
 sudo apt install -y nodejs
+#sudo apt-get install node-grunt-cli webpack
 which node
+#/usr/local/bin/node
 /usr/bin/node --version
+
 /usr/bin/nodejs --version
+
 echo $NODE_PATH
+
 ll /usr/bin/node
+#sudo rm /usr/bin/node
+#sudo ln -s /usr/local/n/versions/node/7.8.0/bin/node /usr/bin/node
+
 sudo npm remove -g node-gyp
 sudo npm install -g node-gyp@2.0.2
 node-gyp --version
+#v2.0.2
+#sudo npm install -g gyp
+
 node_modules/node-gyp/bin/node-gyp.js --version
 ./node/npm/bin/node-gyp-bin/node-gyp --version
+#v2.0.1
 node-gyp rebuild
+
 --------------------------------------------------------------------
+
+#sudo apt-get install nodejs npm
+#Node updater
+#sudo npm cache clean -f
+#sudo npm install -g n
+#sudo n stable
+#/usr/local/n/versions/node/6.4.0
+#/usr/bin/node --version
+#Switch to new version
+#sudo ln -sf /usr/local/n/versions/node/6.4.0/ /usr/bin/node
+#
+
+#Upgrade node
+#http://stackoverflow.com/questions/8191459/how-to-update-node-js
+#as root
 npm cache clean -f
 npm install -g n
+#n stable
 n 8.9.4
 node -v
 /usr/local/bin/node -v
+
+#update clean up npm repo
+#sudo chown -R albandri:albandri  ~/.npm
 npm cache clear
+#update npm
 npm update
+
+#show which dependencies is using connect
 npm ls connect
+#Upgrade npm
+#npm install -g npm
 sudo mv /usr/local/bin//npm /usr/local/bin//npm-TODELETE
 sudo npm install -g npm@7.11.2
+#npm install -g npm@5.5.1
+
+#publish to https://www.npmjs.com/
 npm whoami
+#npm adduser --registry=https://www.npmjs.com/
 npm adduser
+#albanandrieu
 npm login
+
 npm config ls
+
+#API : http://npm.nabla.mobi:8080/
+#GUI : https://www.npmjs.com/~albanandrieu
+
 npm list -g
+
 sudo apt install node-less
+
+# ERROR : npm node-libcurl: Command failed.
+# https://stackoverflow.com/questions/44396357/i-can-not-install-node-libcurl-module
 sudo apt-get install libcurl4-openssl-dev
+
 npm i pnpm --global
+
 exit 0

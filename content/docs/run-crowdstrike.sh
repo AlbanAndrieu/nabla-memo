@@ -1,8 +1,25 @@
 #!/bin/bash
 set -xv
+
+#See https://www.crowdstrike.com/
+
+#falcon agent
+
+#cd /tmp; wget http://10.22.212.139/falcon/Redhat.zip; unzip Redhat.zip; cd Redhat; wget http://10.22.212.139/falcon/libnl-1.1.4-3.el7.x86_64.rpm; rpm -i libnl-1.1.4-3.el7.x86_64.rpm; rpm -i falcon-sensor-5.28.0-9205.el7.x86_64.rpm; /opt/CrowdStrike/falconctl -s --cid=A0DDF149ED9147C9844E012249585DD9-EF; systemctl start falcon-sensor.service; systemctl status falcon-sensor.service
+#cd /tmp; wget http://10.22.212.139/falcon/Redhat.zip; unzip Redhat.zip; cd Redhat; rpm -i falcon-sensor-5.28.0-9205.el6.x86_64.rpm; /opt/CrowdStrike/falconctl -s --cid=A0DDF149ED9147C9844E012249585DD9-EF; service falcon-sensor start; service falcon-sensor status
+#cd /tmp; wget http://10.22.212.139/falcon/Ubuntu.zip; unzip Ubuntu.zip; cd Ubuntu; dpkg -i falcon-sensor_5.28.0-9205_amd64.deb; /opt/CrowdStrike/falconctl -s --cid=A0DDF149ED9147C9844E012249585DD9-EF; systemctl start falcon-sensor.service; systemctl status falcon-sensor.service
+#cid=A0DDF149ED9147C9844E012249585DD9-EF
+
+# Check server is reported in http://crowdstrike.provides.io/
+
 sudo systemctl disable falcon-sensor
+
 service falcon-sensor status
+
 sudo /opt/CrowdStrike/falconctl -g --cid
 sudo /opt/CrowdStrike/falconctl -s --cid=a0ddf149ed9147c9844e012249585dd9
+
+# See https://help.redcanary.com/hc/en-us/articles/360052302894-Installing-and-uninstalling-the-Crowdstrike-Falcon-sensor-on-Linux
 sudo apt-get purge falcon-sensor
+
 exit 0

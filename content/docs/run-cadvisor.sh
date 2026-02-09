@@ -1,6 +1,8 @@
 #!/bin/bash
 set -xv
+
 systemctl disable cadvisor.service
+
 sudo docker run \
   --volume=/:/rootfs:ro \
   --volume=/var/run:/var/run:ro \
@@ -11,5 +13,7 @@ sudo docker run \
   --detach=true \
   --name=cadvisor \
   google/cadvisor:latest
+
 echo "http://nabla:8080/containers/"
+
 exit 0

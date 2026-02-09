@@ -401,10 +401,10 @@ docker run -it nabla/ansible-jenkins-slave-docker /bin/bash
 #Sample using container to build my local workspace
 docker run -t -d -w /sandbox/project-to-build -v /workspace/users/albandri30/:/sandbox/project-to-build:rw --name sandbox nabla/ansible-jenkins-slave:latest cat
 #More advance sample using jenkins user on my workstation in order to get bash completion, git-radar and most of the dev tools I need
-docker run -it --rm --net=host --pid=host --dns-search=albandrieu.com --init -w /sandbox/project-to-build -v /workspace/users/albandri30/:/sandbox/project-to-build:rw -v /workspace:/workspace -v /jenkins:/home/jenkins -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -v /etc/bash_completion.d:/etc/bash_completion.d:ro -v/data1/home/albandri/.git-radar/:/home/jenkins/.git-radar/ --name sandbox nabla/ansible-jenkins-slave:latest /bin/bash #nosec
+docker run -it -u 1004:999 --rm --net=host --pid=host --dns-search=albandrieu.com --init -w /sandbox/project-to-build -v /workspace/users/albandri30/:/sandbox/project-to-build:rw -v /workspace:/workspace -v /jenkins:/home/jenkins -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -v /etc/bash_completion.d:/etc/bash_completion.d:ro -v/data1/home/albandri/.git-radar/:/home/jenkins/.git-radar/ --name sandbox nabla/ansible-jenkins-slave:latest /bin/bash
 #do you stuff
-docker commit XXX jenkins-1
-sudo docker run --rm -i -t XXX /usr/sbin/sshd -D
+docker commit 44f8471b6047 jenkins-1
+sudo docker run --rm -i -t fec8ae404140 /usr/sbin/sshd -D
 sudo docker kill stupefied_albattani
 
 #http://repo.jenkins-ci.org/releases/com/nirima/docker-plugin/0.6.1/

@@ -19,14 +19,14 @@ sudo systemctl enable --now influxdb
 systemctl status influxdb
 
 curl -XPOST "http://localhost:8086/query" \
-  --data-urlencode "q=CREATE USER nabla WITH PASSWORD 'XXX' WITH ALL PRIVILEGES" #nosec allow:gitleaks
+  --data-urlencode "q=CREATE USER nabla WITH PASSWORD 'XXX' WITH ALL PRIVILEGES"  #nosec allow:gitleaks
 
-CRED="nabla:XXX" #nosec allow:gitleaks
+USER="nabla:XXX"; #nosec allow:gitleaks
 
-curl -G http://localhost:8086/query -u $CRED --data-urlencode "q=SHOW DATABASES"
+curl -G http://localhost:8086/query -u $USER --data-urlencode "q=SHOW DATABASES"
 
-curl -XPOST "http://localhost:8086/query" -u $CRED \
-  --data-urlencode "q=CREATE USER telegraf WITH PASSWORD 'XXX' WITH ALL PRIVILEGES"
+curl -XPOST "http://localhost:8086/query" -u $USER \
+  --data-urlencode "q=CREATE USER telegraf WITH PASSWORD 'XXX' WITH ALL PRIVILEGES" #nosec allow:gitleaks
 
 sudo nano /etc/influxdb/influxdb.conf
 

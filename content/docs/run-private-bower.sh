@@ -1,38 +1,82 @@
 #!/bin/bash
 set -xv
+
+#Install private bower
+#https://github.com/Hacklone/private-bower/blob/master/README.md
 npm install -g private-bower
 ll /usr/local/bin/private-bower
 ll /usr/local/lib/node_modules/private-bower
+#start
 sudo private-bower
 http://localhost:5678/
 http://192.168.1.61:5678/packages
 http://albandrieu.com:5678/packages
+
+#npm adduser --registry http://albandrieu.com:5678/
+#admin/micro/alban.andrieu@free.f
+
 bower register [packageName] [gitRepo]
 bower register sample-component ssh://git@github.com:AlbanAndrieu/nabla-bower-sample-component.git
+
+# Add packages
+#bower register font-awesome https://github.com/components/font-awesome.git
+#bower register bootstrap-sass-official https://github.com/twbs/bootstrap-sass.git
 bower register jquery https://github.com/jquery/jquery-dist.git
+
+#bower register test https://scm-git-eur.albandrieu.com/scm/risk/ui-components.git
+#for bower registry
 curl -X DELETE "http://albandrieu.com:5678/packages/test?access_token=password"
+#for bower private
 curl -X POST http://albandrieu.com:5678/removePackage -d '{"name":"test"}' -H "Content-Type: application/json" --header "Auth-Key:123456"
+
+#Refresh
 curl -X POST http://albandrieu.com:5678/refresh
+
 ll ~/.m2/bowerRepository.json
 ll ~/.m2/bowerRepositoryPublic.json
+
+#Install bower-registry
+#Install redis
+#http://redis.io/topics/quickstart
 sudo apt-get install redis-server
+#check it is working
 redis-cli ping
 npm install -g bower-registry
+#start
 bower-registry -d redis
 bower-registry -p 8089 -d redis -o '{"port": 6379, "host": "127.0.0.1"}' -P
 curl http://localhost:8089/packages
+#find package jquery
 curl http://albandrieu.com:8089/packages/jquery
+
 git fetch --all --tags
+#git checkout tags/2.1.4 -b 2.1.4-branch
+
 https://github.com/jquery/jquery/blob/2.1.4/.bowerrc
+
 http://localhost:8089/
+#install bower-registry-client
 npm install --save bower-registry-client
-sudo find /usr/local/lib/node_modules/private-bower -type f -print0|  xargs -0 sudo sed -i 's/risk-bower/fr1cslfrqa0001/g'
+
+sudo find /usr/local/lib/node_modules/private-bower -type f -print0 | xargs -0 sudo sed -i 's/risk-bower/fr1cslfrqa0001/g'
+
+# Start private-bower
 cd /home/bower/private-bower
-nohup node /usr/local/node/lib/node_modules/private-bower/bin/private-bower --config private-bower.json >> private-bower.log 2>&1&
+nohup node /usr/local/node/lib/node_modules/private-bower/bin/private-bower --config private-bower.json >>private-bower.log 2>&1 &
+
 lsof -i :5678
 lsof -i :6789
+
+#issue while refresh
+#try workaround
 cd /files/bower/private-bower/gitRepoCache/nabla-auth
 git fetch --prune --tags
+
+#for each repo
 git config --local --list
 git config http.sslVerify false
+
+# SSL connect error
+#git clone https://github.com/components/font-awesome.git
+
 exit 0

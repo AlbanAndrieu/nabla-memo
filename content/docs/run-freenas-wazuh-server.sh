@@ -186,9 +186,10 @@ Wazuh indexer components were installed
 
 11) Testing your server installation
 
-   # curl -k -u admin:xxx https://10.0.0.10:9200 #nosec allow:gitleaks
-   # curl -k -u admin:xxx https://10.0.0.10:9200/_cat/nodes?v #nosec allow:gitleaks
-   curl -k -u admin:xxx http://172.17.0.2:9200/ #nosec allow:gitleaks
+   USER=admin:adminpass
+   # curl -k -u $USER https://10.0.0.10:9200
+   # curl -k -u $USER https://10.0.0.10:9200/_cat/nodes?v
+   curl -k -u $USER http://172.17.0.2:9200/
 
 pkg install security/wazuh-dashboard
 

@@ -157,4 +157,7 @@ sudo mv taws /usr/local/bin/
 
 taws
 
+# get aws user
+aws sts get-caller-identity
+
 exit 0

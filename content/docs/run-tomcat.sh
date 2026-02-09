@@ -61,11 +61,10 @@ sudo /etc/init.d/tomcat9 restart
 sudo service tomcat9 restart
 #sido systemctl disable tomcat9 remove
 
-CRED="user:XXX" #nosec allow:gitleaks
-CRED2="manager:XXX" #nosec allow:gitleaks
-
-curl -T - -u $CRED 'http://<tomcat-host>/manager/text/deploy?update=true&path=/<yourpath>' < <path_to_war_file>
-curl -T - -u $CRED2 'http://localhost:8080/manager/text/deploy?update=true&path=/slim' < /target/dist/slim.war
+USER="user:pass"
+USER_MANAGER="manager:123456"
+curl -T - -u $USER 'http://<tomcat-host>/manager/text/deploy?update=true&path=/<yourpath>' < <path_to_war_file>
+curl -T - -u $USER_MANAGER 'http://localhost:8080/manager/text/deploy?update=true&path=/slim' < /target/dist/slim.war
 
 tail -f /var/log/tomcat9
 tail -f /var/lib/tomcat9/logs/

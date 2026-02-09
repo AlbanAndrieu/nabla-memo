@@ -25,7 +25,9 @@ myCookies=$myBashDir/myCookies.txt
 ########################################
 # Connexion et recuperation du cookies #
 ########################################
-curl -s -o "$myOutput" -X POST -c "$myCookies" -H 'Content-Type: application/x-sah-ws-4-call+json' -H 'Authorization: XXX' -d "{\"service\":\"sah.Device.Information\",\"method\":\"createContext\",\"parameters\":{\"applicationName\":\"so_sdkut\",\"username\":\"admin\",\"password\":\"$myPassword\"}}" http://$myLivebox/ws >/dev/null #nosec allow:gitleaks
+
+AUTHORIZATION="X-Sah-Login"; #nosec allow:gitleaks
+curl -s -o "$myOutput" -X POST -c "$myCookies" -H 'Content-Type: application/x-sah-ws-4-call+json' -H 'Authorization: $AUTHORIZATION' -d "{\"service\":\"sah.Device.Information\",\"method\":\"createContext\",\"parameters\":{\"applicationName\":\"so_sdkut\",\"username\":\"admin\",\"password\":\"$myPassword\"}}" http://$myLivebox/ws >/dev/null
 
 ##################################################
 # Lecture du cookies pour utilisation ulterieure #

@@ -58,14 +58,14 @@ $CONFIG = array (
 https://cloud.google.com/console#/project
 
 less /owncloud/data/albandri/mount.json
-{"user":{"albandri":{"\/albandri\/files\/FTP":{"class":"\\OC\\Files\\Storage\\FTP","options":{"host":"mafreebox.freebox.fr","user":"freebox","password":"micXXX","root":"","secure":"false"}},"\/albandri\/files\/Dropbox":{"class":"\\OC\\Files\\Storage\\Dropbox","options":{"configured":"true","app_key":"w2cmydmksjbwmzp","app_secret":"76e2eoo2sfc63ez","token":"XXX","token_secret":"XXX"}},"\/albandri\/files\/GoogleDrive":{"class":"\\OC\\Files\\Storage\\Google","options":{"configured":"true","client_id":"762972018205.apps.googleusercontent.com","client_secret":"XXX","token":"{\"access_token\":\"XXX\",\"token_type\":\"Bearer\",\"expires_in\":3600,\"refresh_token\":\"1\\\/XXX\",\"created\":1384385302}"}}}}} #nosec allow:gitleaks
+{"user":{"albandri":{"\/albandri\/files\/FTP":{"class":"\\OC\\Files\\Storage\\FTP","options":{"host":"mafreebox.freebox.fr","user":"freebox","password":"microsoft","root":"","secure":"false"}},"\/albandri\/files\/Dropbox":{"class":"\\OC\\Files\\Storage\\Dropbox","options":{"configured":"true","app_key":"w2cmydmksjbwmzp","app_secret":"76e2eoo2sfc63ez","token":"XXX","token_secret":"XXX"}},"\/albandri\/files\/GoogleDrive":{"class":"\\OC\\Files\\Storage\\Google","options":{"configured":"true","client_id":"762972018205.apps.googleusercontent.com","client_secret":"XXX","token":"{\"access_token\":\"XXX\",\"token_type\":\"Bearer\",\"expires_in\":3600,\"refresh_token\":\"1\\\/XXX\",\"created\":1384385302}"}}}}}
 
 /etc/apache2/sites-available/default-ssl
 
 -------------------------------------------------------------------------------------
 #on freenas
 #TODO Media bug fix
-https://github.com/owncloud/apps/commit/XXX
+https://github.com/owncloud/apps/commit/64ce426e073fff7118a5b0f5490f6887ef08ef2f
 #or install it by hand
 #http://imgur.com/a/FgFlc
 

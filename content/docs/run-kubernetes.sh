@@ -136,14 +136,14 @@ journalctl -xeu kubelet
 #You can now join any number of machines by running the following on each node
 #as root:
 #albandri
-kubeadm join 10.41.40.139:6443 --token XXX.XXX \
+kubeadm join 10.41.40.139:6443 --token wq7kbn.l21cmw4d2ko4tc9v \
   --discovery-token-ca-cert-hash sha256:XXX --ignore-preflight-errors=SystemVerification,IsDockerSystemdCheck,Swap
 #albandrieu
-kubeadm join 10.41.40.40:6443 --token XXX.XXX \
+kubeadm join 10.41.40.40:6443 --token em40d6.ork5gj1u2ngn7vmf \
   --discovery-token-ca-cert-hash sha256:XXX --ignore-preflight-errors=SystemVerification,IsDockerSystemdCheck,Swap
 #See https://10.41.40.40:6443/
 #ptxs12361
-kubeadm join 150.151.160.25:6443 --token XXX.XXX \
+kubeadm join 150.151.160.25:6443 --token gokjm5.t6y5zshdw14ditgq \
   --discovery-token-ca-cert-hash sha256:XXX
 
 ./run-kubernetes-dashboard.sh

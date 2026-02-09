@@ -1,13 +1,22 @@
 #!/bin/bash
+#set -xve
+
 export VAULT_ADDR_HCL='https://vault-cluster.vault.aa257bb4-2600-4ef4-b9ce-a97076835404.aws.hashicorp.cloud:8200'
 export VAULT_TOKEN="XXX"
+
 vault write auth/github/config organization=Banbou
+
+# See https://medium.com/hashicorp-engineering/push-button-security-for-your-github-actions-d4fffde1df20
+
 vault auth enable jwt
+
 vault write auth/jwt/config \
   oidc_discovery_url="https://token.actions.githubusercontent.com" \
   bound_issuer="https://token.actions.githubusercontent.com" \
   default_role="nabla"
-vault write auth/jwt/role/nabla - << EOF
+
+# "user_claim": "workflow" defines the entity alias.
+vault write auth/jwt/role/nabla - <<EOF
 {
     "role_type": "jwt",
     "bound_subject": "",
@@ -21,7 +30,8 @@ vault write auth/jwt/role/nabla - << EOF
     "ttl": "1h"
 }
 EOF
-vault policy write github-policy - << EOF
+
+vault policy write github-policy - <<EOF
 path "secret/test/*" {
   capabilities = ["read","create", "delete", "update"]
 }
@@ -44,12 +54,24 @@ path "nabla/*" {
   capabilities = ["read", "create", "delete", "update"]
 }
 EOF
+
 vault kv get secret/test/webapp
-vault kv put nabla/scan/sonarcloud sonar-token="$SONAR_TOKEN"
+
+#kv/data/nabla/scan/sonarcloud sonar-token | SONAR_TOKEN
+
+vault kv put nabla/scan/sonarcloud sonar-token="${SONAR_TOKEN}"
 vault kv get nabla/scan/sonarcloud/
-GITHUB_REPO_TOKEN=$(vault token create -policy=github-policy -format json|  jq -r ".auth.client_token")
+
+GITHUB_REPO_TOKEN=$(vault token create -policy=github-policy -format json | jq -r ".auth.client_token")
 echo $GITHUB_REPO_TOKEN
+
 VAULT_TOKEN=$GITHUB_REPO_TOKEN
 vault kv get nabla/scan/sonarcloud/
+
+# See https://github.com/hashicorp/vault-action
+
+# https://developer.hashicorp.com/vault/tutorials/auth-methods/oidc-auth
+
 vault auth enable oidc
+
 exit 0
