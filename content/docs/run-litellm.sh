@@ -38,4 +38,8 @@ curl http://localhost:4100/v1/chat/completions   -H "Authorization: Bearer ${LIT
 
 # OK gpt1 gpt2
 
+ll /home/albandrieu/.litellm/.env
+
+ll ~/litellm-venv/lib/python3.12/site-packages/litellm/proxy/example_config_yaml/azure_config.yam
+
 exit 0

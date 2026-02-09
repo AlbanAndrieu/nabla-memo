@@ -53,6 +53,7 @@ sudo systemctl status ollama
 
 cloudflared tunnel --url http://localhost:11434 --http-host-header="localhost:11434"
 
+echo "http://172.17.0.57:11434/"
 echo "https://ollama-gpu.albandrieu.com/"
 
 exit 1
