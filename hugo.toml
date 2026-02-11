@@ -20,3 +20,10 @@ theme = 'ananke'
   name = 'About'
   url = '/about/'
   weight = 2
+
+# [module]
+# [[module.imports]]
+# disable = false
+# ignoreConfig = false
+# ignoreImports = false
+# path = 'github.com/theNewDynamic/gohugo-theme-ananke/v2'

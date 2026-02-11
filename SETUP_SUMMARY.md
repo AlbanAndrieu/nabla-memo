@@ -72,6 +72,9 @@ nabla-memo/
 git clone --recurse-submodules https://github.com/AlbanAndrieu/nabla-memo.git
 cd nabla-memo
 
+# Add theme
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+
 # Run development server
 hugo server -D
 
