@@ -6,21 +6,39 @@ A modern static website built with Hugo and the PaperMod theme, deployable to Ve
 
 This repository contains a Hugo static site with automated deployment via GitHub Actions to Vercel and Cloudflare Pages.
 
-**Quick Start:**
 
+## Hugo Migration in Progress
+
+This project is being prepared for migration from static HTML to Hugo static site generator.
+
+### Current Status
+- ✅ Hugo directory structure created (`content/`, `layouts/`, `static/`, `themes/`, `archetypes/`)
+- ✅ Hugo configuration file (`hugo.toml`) added
+- ✅ GitHub Actions workflow for Hugo build and Vercel deployment created
+- ⏳ Existing HTML files remain in `public/` directory and continue to work
+- ⏳ Hugo templates and content conversion pending
+
+### Hugo Setup
+See [HUGO_MIGRATION.md](./HUGO_MIGRATION.md) for detailed migration documentation.
+
+To build the site with Hugo:
 ```bash
-brew install hugo
+# Install Hugo
+brew install hugo  # macOS
+# or
+sudo apt-get install hugo  # Ubuntu/Debian
 
 # Install dependencies
 git clone --recurse-submodules https://github.com/AlbanAndrieu/nabla-memo.git
-cd nabla-memo
-npm install
 
-# Run locally with Hugo
+# Add theme
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+
+# Build the site
+hugo --minify
+
+# Run development server
 hugo server -D
-
-# Or use npm scripts
-npm run dev
 
 # Build for production
 hugo --gc --minify
