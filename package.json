@@ -17,7 +17,7 @@
 		"conventional-changelog-gitmoji-config": "^1.5.2",
 		"cz-conventional-changelog": "^3.3.0",
 		"opencommit": "^3.2.10",
-		"wrangler": "^4.61.1"
+		"wrangler": "^4.64.0"
 	},
 	"dependencies": {
 		"@vercel/analytics": "^1.6.1",
