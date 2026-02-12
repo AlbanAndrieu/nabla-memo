@@ -6,6 +6,7 @@
 sudo apt-get install texlive-full fonts-font-awesome
 
 sudo apt-get install texlive texlive-latex-extra texlive-lang-french
+sudo apt-get install texlive-xetex
 
 #sudo apt-get install texmaker
 #texmaker cv-aandrieu-XX-XX-2021.tex
@@ -34,4 +35,5 @@ htlatex code.tex "ht5mathjax,charset=utf-8,NoFonts" "-utf8" -dSomeDir "--interac
 # template
 https://www.overleaf.com/latex/templates/tagged/cv
 https://www.latextemplates.com/template/freeman-cv
+
 exit 0

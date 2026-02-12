@@ -28,4 +28,7 @@ cd /workspace/users/albandrieu30/jm/fastapi-sample
 npx wrangler deploy
 echo "https://https://fastapi-sample.bababou.workers.dev/"
 
+npm i mcp-remote
+echo "https://playground.ai.cloudflare.com/"
+
 exit 0
